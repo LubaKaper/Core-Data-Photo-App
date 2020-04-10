@@ -70,10 +70,11 @@ extension SearchViewController: UICollectionViewDataSource {
 }
 extension SearchViewController: UICollectionViewDelegateFlowLayout {
     
+    // FOR SIZE: IN COLLECTIONVIEW, GO TO SIZE INSPECTOR. CHANGE ESTIMATED SIZE TO NONE
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let interItemSpacing:CGFloat = 5 // space between items
         let maxWidth = UIScreen.main.bounds.size.width // device's width
-        let numberOfItems: CGFloat = 2 // 3 items
+        let numberOfItems: CGFloat = 1 // 3 items
         let totalSpacing: CGFloat = numberOfItems * interItemSpacing
         let itemWidth:CGFloat = (maxWidth - totalSpacing) / numberOfItems
         return CGSize(width: itemWidth, height: itemWidth)

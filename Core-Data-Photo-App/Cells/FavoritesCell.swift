@@ -7,10 +7,15 @@
 //
 
 import UIKit
+import Kingfisher
 
 class FavoritesCell: UITableViewCell {
 
     
     @IBOutlet weak var faveImageView: UIImageView!
+    
+    public func configureCell(for fave: Favorite) {
+        faveImageView.kf.setImage(with: URL(string: fave.image ?? ""))
+    }
     
 }

@@ -9,8 +9,13 @@
 import UIKit
 import Kingfisher
 
+protocol SaveFavoriteDelegate: AnyObject {
+    func didSaveFavorite(_ detailVC: DetailViewController, favorite: Favorite)
+}
+
 class DetailViewController: UIViewController {
     
+    let user = User()
     
     @IBOutlet weak var detailImageView: UIImageView!
     
@@ -26,6 +31,8 @@ class DetailViewController: UIViewController {
     
     
     @IBOutlet weak var heartButton: UIBarButtonItem!
+    
+    weak var delegate: SaveFavoriteDelegate?
     
     var imageInfo: Hit?
     
@@ -57,6 +64,16 @@ class DetailViewController: UIViewController {
     
 
     @IBAction func heartButtonPressed(_ sender: UIBarButtonItem) {
+        heartButton.image = UIImage(systemName: "heart.fill")
+        guard let image = imageInfo else {
+            fatalError("check prepare for segue")
+        }
+        guard let name = image.user,  let likes = image.likes, let faviritedBy = image.favorites, let image1 = image.largeImageURL else {
+            return
+        }
+       // let tags = image.tags,
+        let favorite = CoreDataManager.shared.saveFavorite( image: image1, imageByUser: name, likes: likes, favoritedBy: faviritedBy)//, tags: tags)
+        delegate?.didSaveFavorite(self, favorite: favorite)
     }
     
 

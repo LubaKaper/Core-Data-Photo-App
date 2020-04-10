@@ -13,6 +13,11 @@
 		8D5A6E0F2440E4B1002BA02D /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5A6E0E2440E4B1002BA02D /* ImageCell.swift */; };
 		8D5A6E112440E4D3002BA02D /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5A6E102440E4D3002BA02D /* FavoritesCell.swift */; };
 		8D5A6E132440F45B002BA02D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5A6E122440F45B002BA02D /* DetailViewController.swift */; };
+		8D5A6E1924410007002BA02D /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5A6E1524410007002BA02D /* User+CoreDataClass.swift */; };
+		8D5A6E1A24410007002BA02D /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5A6E1624410007002BA02D /* User+CoreDataProperties.swift */; };
+		8D5A6E1B24410007002BA02D /* Favorite+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5A6E1724410007002BA02D /* Favorite+CoreDataClass.swift */; };
+		8D5A6E1C24410007002BA02D /* Favorite+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5A6E1824410007002BA02D /* Favorite+CoreDataProperties.swift */; };
+		8D5A6E1E24410EFA002BA02D /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5A6E1D24410EFA002BA02D /* CoreDataManager.swift */; };
 		8DE80D862440D48C00B20B77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE80D852440D48C00B20B77 /* AppDelegate.swift */; };
 		8DE80D882440D48C00B20B77 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE80D872440D48C00B20B77 /* SceneDelegate.swift */; };
 		8DE80D8A2440D48C00B20B77 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE80D892440D48C00B20B77 /* SearchViewController.swift */; };
@@ -32,6 +37,11 @@
 		8D5A6E0E2440E4B1002BA02D /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		8D5A6E102440E4D3002BA02D /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
 		8D5A6E122440F45B002BA02D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		8D5A6E1524410007002BA02D /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "User+CoreDataClass.swift"; path = "Core-Data-Photo-App/User+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		8D5A6E1624410007002BA02D /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "User+CoreDataProperties.swift"; path = "Core-Data-Photo-App/User+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		8D5A6E1724410007002BA02D /* Favorite+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Favorite+CoreDataClass.swift"; path = "Core-Data-Photo-App/Favorite+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		8D5A6E1824410007002BA02D /* Favorite+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Favorite+CoreDataProperties.swift"; path = "Core-Data-Photo-App/Favorite+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		8D5A6E1D24410EFA002BA02D /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		8DE80D822440D48C00B20B77 /* Core-Data-Photo-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Core-Data-Photo-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DE80D852440D48C00B20B77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DE80D872440D48C00B20B77 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +106,18 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		8D5A6E142440FFBB002BA02D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8D5A6E1524410007002BA02D /* User+CoreDataClass.swift */,
+				8D5A6E1624410007002BA02D /* User+CoreDataProperties.swift */,
+				8D5A6E1724410007002BA02D /* Favorite+CoreDataClass.swift */,
+				8D5A6E1824410007002BA02D /* Favorite+CoreDataProperties.swift */,
+				8D5A6E1D24410EFA002BA02D /* CoreDataManager.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		8DE80D792440D48C00B20B77 = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +139,7 @@
 		8DE80D842440D48C00B20B77 /* Core-Data-Photo-App */ = {
 			isa = PBXGroup;
 			children = (
+				8D5A6E142440FFBB002BA02D /* Models */,
 				8D5A6E0B2440DB5E002BA02D /* Cells */,
 				8D5A6E0A2440DB47002BA02D /* ViewControllers */,
 				8DE80D9F2440D77200B20B77 /* NetworkServices */,
@@ -272,6 +295,8 @@
 			files = (
 				8D5A6E132440F45B002BA02D /* DetailViewController.swift in Sources */,
 				8DE80D8A2440D48C00B20B77 /* SearchViewController.swift in Sources */,
+				8D5A6E1924410007002BA02D /* User+CoreDataClass.swift in Sources */,
+				8D5A6E1B24410007002BA02D /* Favorite+CoreDataClass.swift in Sources */,
 				8DE80D862440D48C00B20B77 /* AppDelegate.swift in Sources */,
 				8D5A6E0F2440E4B1002BA02D /* ImageCell.swift in Sources */,
 				8D5A6E112440E4D3002BA02D /* FavoritesCell.swift in Sources */,
@@ -279,7 +304,10 @@
 				8DE80DA12440D79500B20B77 /* PhotoAPIClient.swift in Sources */,
 				8DE80D9E2440D6CA00B20B77 /* Config.swift in Sources */,
 				8DE80D902440D48C00B20B77 /* Core_Data_Photo_App.xcdatamodeld in Sources */,
+				8D5A6E1C24410007002BA02D /* Favorite+CoreDataProperties.swift in Sources */,
+				8D5A6E1A24410007002BA02D /* User+CoreDataProperties.swift in Sources */,
 				8DE80D882440D48C00B20B77 /* SceneDelegate.swift in Sources */,
+				8D5A6E1E24410EFA002BA02D /* CoreDataManager.swift in Sources */,
 				8D5A6E092440DAB9002BA02D /* ImageModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
