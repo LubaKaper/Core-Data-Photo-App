@@ -21,6 +21,8 @@ class FavoritesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        
         navigationController?.navigationBar.backgroundColor = .cyan
         tableView.dataSource = self
         tableView.delegate = self
@@ -36,7 +38,18 @@ class FavoritesViewController: UIViewController {
         favorites = CoreDataManager.shared.fetchFavorites()
     }
     
+    var isEditingTableView = false {
+        didSet { // property observer
+            // toggle editing mode of table view
+            tableView.isEditing = isEditingTableView
+            
+            // toggle bar button item's title between "Edit" and "Done"
+            navigationItem.leftBarButtonItem?.title = isEditingTableView ? "Done" : "Edit"
+        }
+    }
+    
     @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
+        isEditingTableView.toggle()
     }
     
    
@@ -53,8 +66,15 @@ extension FavoritesViewController: UITableViewDataSource {
         }
         let favorite = favorites[indexPath.row]
         cell.configureCell(for: favorite)
+        cell.backgroundColor = #colorLiteral(red: 0.8741410375, green: 0.7467750311, blue: 0.4927862883, alpha: 1)
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = self.storyboard!.instantiateViewController(identifier: "DetailVC") as DetailViewController
+            let image = favorites[indexPath.row]
+           detailVC.favorite = image
+            self.navigationController?.pushViewController(detailVC, animated: true)
+        }
     
     
 }

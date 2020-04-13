@@ -35,17 +35,17 @@ class DetailViewController: UIViewController {
     weak var delegate: SaveFavoriteDelegate?
     
     var imageInfo: Hit?
+    var favorite: Favorite?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    
         updateUI()
     }
     
     func updateUI() {
-        guard let image = imageInfo else {
-            fatalError("check prepare for segue")
-        }
+        
+        if  let image = imageInfo {
         if let userName = image.user{
             userLabel.text = "user: \(userName)"
         } else {
@@ -58,8 +58,24 @@ class DetailViewController: UIViewController {
         favoritesLabel.text = "favorited by \(image.favorites?.description ?? "0") users"
         
         detailImageView.kf.setImage(with: URL(string: image.largeImageURL ?? ""))
+            
+        } else if let image = favorite {
+            heartButton.image = UIImage(systemName: "heart.fill")
+            if let userName = image.userName{
+                userLabel.text = "user: \(userName)"
+            } else {
+                userLabel.text = "user: nothing"
+
+            }
+           // tagsLabel.text = image.tags
+            likesLabel.text = "likes: \(image.likes.description )"
+            favoritesLabel.text = "favorited by \(image.favoritedBy.description ) users"
+            
+            detailImageView.kf.setImage(with: URL(string: image.image ?? ""))
+        } else {
+            fatalError("could not segueue")
+        }
     }
-    
 
     
 
@@ -68,7 +84,7 @@ class DetailViewController: UIViewController {
         guard let image = imageInfo else {
             fatalError("check prepare for segue")
         }
-        guard let name = image.user,  let likes = image.likes, let faviritedBy = image.favorites, let image1 = image.largeImageURL else {
+        guard let name = image.user, let tag = image.tags, let likes = image.likes, let faviritedBy = image.favorites, let image1 = image.largeImageURL else {
             return
         }
        // let tags = image.tags,
